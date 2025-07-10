@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOU'RE EARLY</title>
+<title>UNIVERSAL MAXIMA LOS ANGELES</title>
 <style>
   body {
     background: black;
-    color: #00ff00;
+    color: #ccc;
     font-family: monospace;
     font-size: 2rem;
     display: flex;
@@ -15,31 +15,42 @@
     align-items: center;
     height: 100vh;
   }
+  .container {
+    text-align: left;
+  }
   #text {
-    border-right: .1em solid #00ff00;
-    white-space: nowrap;
-    overflow: hidden;
+    display: inline;
+  }
+  .cursor {
+    display: inline-block;
+    width: 0.6ch;
+    background-color: #ccc;
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 </style>
 </head>
 <body>
-<div id="text"></div>
+<div class="container">
+  <span id="text"></span><span class="cursor">&nbsp;</span>
+</div>
 <script>
 const message = "YOU'RE EARLY";
 const textEl = document.getElementById('text');
 let index = 0;
+
+// Start typing after 1 second
+setTimeout(type, 1000);
 
 function type() {
   if (index < message.length) {
     textEl.textContent += message[index];
     index++;
     setTimeout(type, 150);
-  } else {
-    textEl.style.borderRight = 'none'; // remove cursor after typing
   }
 }
-
-type();
 </script>
 </body>
 </html>
