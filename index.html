@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOU'RE EARLY</title>
+<style>
+  body {
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #text {
+    border-right: .1em solid #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+<div id="text"></div>
+<script>
+const message = "YOU'RE EARLY";
+const textEl = document.getElementById('text');
+let index = 0;
+
+function type() {
+  if (index < message.length) {
+    textEl.textContent += message[index];
+    index++;
+    setTimeout(type, 150);
+  } else {
+    textEl.style.borderRight = 'none'; // remove cursor after typing
+  }
+}
+
+type();
+</script>
+</body>
+</html>
